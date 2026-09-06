@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Detective Database</title>
+
+    <link rel="stylesheet"
+          href="auth.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="background">
+
+        <div class="moon"></div>
+
+        <div class="rain"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <a href="../Homepage.html"
+           class="logo">
+
+            <span class="logo-small">
+                CASE FILE
+            </span>
+
+            <span class="logo-main">
+                CONAN
+            </span>
+
+        </a>
+
+
+        <a href="../Homepage.html"
+           class="back-button">
+            ← BACK TO HOME
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================
+         AUTH CONTAINER
+    ========================== -->
+
+    <main class="auth-container">
+
+        <div class="auth-box">
+
+
+            <span class="auth-label">
+                DETECTIVE DATABASE
+            </span>
+
+
+            <h1 id="authTitle">
+                LOGIN
+            </h1>
+
+
+            <div class="auth-line"></div>
+
+
+
+            <!-- =========================
+                 LOGIN FORM
+            ========================== -->
+
+            <form id="loginForm">
+
+                <input type="text"
+                       id="loginUsername"
+                       placeholder="USERNAME"
+                       required>
+
+                <input type="password"
+                       id="loginPassword"
+                       placeholder="PASSWORD"
+                       required>
+
+                <p id="loginMessage"></p>
+
+                <button type="submit"
+                        class="auth-button">
+                    LOGIN
+                </button>
+
+            </form>
+
+
+
+            <!-- =========================
+                 SIGN UP FORM
+            ========================== -->
+
+            <form id="signupForm">
+
+                <input type="text"
+                       id="signupUsername"
+                       placeholder="USERNAME"
+                       required>
+
+                <input type="password"
+                       id="signupPassword"
+                       placeholder="PASSWORD"
+                       required>
+
+                <input type="password"
+                       id="signupConfirmPassword"
+                       placeholder="CONFIRM PASSWORD"
+                       required>
+
+                <p id="signupMessage"></p>
+
+                <button type="submit"
+                        class="auth-button">
+                    CREATE ACCOUNT
+                </button>
+
+            </form>
+
+
+
+            <!-- =========================
+                 SWITCH
+            ========================== -->
+
+            <button type="button"
+                    class="auth-switch"
+                    id="authSwitch">
+                CREATE AN ACCOUNT
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script src="auth.js"></script>
+
+</body>
+
+</html>
