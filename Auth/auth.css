@@ -57,44 +57,6 @@ body {
         rgba(8, 8, 6, 0.34);
 }
 
-/*.auth-page::before {
-    position: absolute;
-    inset: 8px;
-    border: 1px solid rgba(223, 200, 135, 0.15);
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 122px,
-            rgba(223, 200, 135, 0.035) 123px,
-            transparent 124px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 84px,
-            rgba(223, 200, 135, 0.03) 85px,
-            transparent 86px
-        );
-    content: "";
-    pointer-events: none;
-}
-
-.auth-page::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 49%;
-    width: 1px;
-    background: linear-gradient(
-        transparent,
-        rgba(223, 200, 135, 0.18),
-        transparent
-    );
-    content: "";
-    pointer-events: none;
-}*/
-
 /* =========================
    AUTH BOX
 ========================== */
@@ -103,7 +65,7 @@ body {
     position: relative;
     z-index: 10;
     width: min(465px, 42%);
-    margin-top: 0;
+    margin-top: 18px;
     margin-left: clamp(50px, 8vw, 145px);
     padding: 27px 42px 25px;
     overflow: hidden;
