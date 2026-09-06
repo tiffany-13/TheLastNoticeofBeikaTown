@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ashley | Developer Profile</title> 
+
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="member-page">
+
+    <div class="member-container">
+
+        <!-- Header -->
+        <header class="member-header">
+
+            <div class="member-case-number">
+                CASE FILE NO. 001
+            </div>
+
+            <h1>DEVELOPER FILE</h1>
+
+            <p>
+                CLASSIFIED PROFILE • DEVELOPMENT TEAM
+            </p>
+
+        </header>
+
+
+        <!-- Main Profile -->
+        <main class="member-case-file">
+
+            <!-- Top Information Bar -->
+            <div class="member-file-top">
+
+                <span>
+                    MOURI DETECTIVE AGENCY
+                </span>
+
+                <span class="member-status">
+                    ● DEVELOPER PROFILE
+                </span>
+
+            </div>
+
+
+            <!-- Member Profile -->
+            <section class="member-profile">
+
+
+                <!-- Member Photo -->
+                <div class="member-photo-section">
+
+                    <div class="member-photo-frame" id="memberPhotoFrame">
+
+                        <img
+                            src="../assets/DevProfile/ashley_conan.png"
+                            alt="Ashley Photo"
+                            id="memberPhoto"
+                        >
+
+                    </div>
+
+                    <div class="member-photo-label">
+                        Ms. Ashley 
+                    </div>
+
+                </div>
+
+
+                <!-- Member Information -->
+                <div class="member-info">
+
+                    <h2>
+                        ASHLEY KHOR XU JEAN
+                    </h2>
+
+                    <div class="member-role">
+                        Programmer 
+                    </div>
+
+
+                    <!-- Introduction --> 
+                    <div class="member-intro">
+
+                        <p>
+                            My name is Ashley, and I am from Penang, Malaysia. 
+                            I am currently majoring in Artificial Intelligence, and I have been constantly developing my knowledge and skills in programming, computer science, and different areas of technology. 
+                            Through my studies and personal experience, I have become interested in using programming to create interactive applications and experiences. 
+                            One of the areas that I particularly enjoy is game development, as it allows me to combine technical skills with creativity and problem-solving.
+                        </p>
+
+                        <p>
+                           For this project, my main role is the programmer. 
+                           Since we are developing a web-based game, I will mainly focus on the technical implementation of the game and making sure that its features and mechanics work as intended. 
+                           I will also work closely with the other team members to implement their ideas and make sure that the programming matches the overall design of the game. 
+                           As a programmer, I will also need to identify and fix bugs, improve the game's functionality, and make sure the game provides a smooth experience for the players.
+                        </p>
+
+                        <p>
+                            I already have experience with game development, so I am familiar with some of the processes involved in creating a game. 
+                            I also have experience with HTML, CSS, and JavaScript, which are especially relevant to this project because they are commonly used to develop web-based applications and games. 
+                            I have worked with these technologies before and understand the basics of how they can be used to create interactive web pages. 
+                            I hope to apply this existing knowledge to the project while continuing to improve my skills, especially in JavaScript and web game development.
+                        </p>
+
+                        <p>
+                            I am also looking forward to the challenges that may come with developing a web game. 
+                            Compared to other types of games, a web game needs to consider things such as browser compatibility, performance, user interaction, and how the game responds to different screen sizes or devices. 
+                            I think these challenges will give me a good opportunity to expand my technical knowledge and learn more about developing games that can be accessed directly through a web browser. 
+                            I also hope to learn from my teammates and contribute ideas that can improve the overall quality of the game.
+                        </p>
+
+                        <p>
+                            Overall, my goal for this project is to contribute as much as I can and help the team create a great web game. 
+                            I hope we can combine everyone's skills, ideas, and creativity to produce a game that is both enjoyable to play and technically well-developed. 
+                            I also want to use this project as an opportunity to strengthen my programming and game development abilities through practical experience. 
+                            I am looking forward to working with my teammates, overcoming the challenges we encounter, and seeing our ideas develop into a finished game that we can all be proud of.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Member Details -->
+                    <div class="member-details">
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                ROLE
+                            </h3>
+
+                            <p>
+                                Programmer 
+                            </p>
+
+                        </div>
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                MAIN TASKS
+                            </h3>
+
+                            <p>
+                                Programming
+                            </p>
+
+                        </div>
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                CONTRIBUTION
+                            </h3>
+
+                            <p>
+                                Implementing game mechanics, developing game logic, handling user interactions, integrating assets, fixing bugs, testing the game, and optimizing performance.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="member-footer">
+
+            &copy; 2026 Mouri Detective Agency. All rights reserved.
+
+        </footer>
+
+    </div>
+
+
+    <!-- Photo Hover JavaScript -->
+    <script>
+
+        const photoFrame = document.getElementById("memberPhotoFrame");
+        const photo = document.getElementById("memberPhoto");
+
+        const firstPhoto = "../assets/DevProfile/ashley_conan.png"; 
+        const secondPhoto = "../assets/DevProfile/ashley.jpg"; 
+
+
+        photoFrame.addEventListener("mouseenter", () => {
+
+            photo.style.opacity = "0";
+
+            setTimeout(() => {
+
+                photo.src = secondPhoto;
+
+                photo.style.opacity = "1";
+
+            }, 250);
+
+        });
+
+
+        photoFrame.addEventListener("mouseleave", () => {
+
+            photo.style.opacity = "0";
+
+            setTimeout(() => {
+
+                photo.src = firstPhoto;
+
+                photo.style.opacity = "1";
+
+            }, 250);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
