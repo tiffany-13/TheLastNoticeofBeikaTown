@@ -35,14 +35,14 @@ header.innerHTML = `
     <header class="navbar">
 
     <div class="logo-container">
-        <a href="${root}index.html" class="logo">
-            <img src="${root}assets/Home/logo.jpg" alt="Game Logo">
+        <a href="${root}../index.html" class="logo">
+            <img src="${root}../assets/Home/logo.jpg" alt="Game Logo">
         </a>
     </div>
 
     <nav>
-        <a href="${root}index.html">Home</a>
-        <a href="${root}DevProfile/AboutUs.html">About</a>
+        <a href="${root}../index.html">Home</a>
+        <a href="${root}../DevProfile/AboutUs.html">About</a>
 
         <button class="login-btn" id="loginButton">
             <span>LOG IN</span>
@@ -170,8 +170,7 @@ loginButton.addEventListener("click", function () {
     // IF LOGGED OUT → OPEN LOGIN PAGE
     // =================================================
 
-    window.location.href =
-        root + "Auth/auth.html?mode=login";
+    window.location.href = "../Auth/auth.html?mode=login";
 
 });
 
@@ -185,8 +184,7 @@ signupButton.addEventListener("click", function () {
 
     // Open SIGN UP page
 
-    window.location.href =
-        root + "Auth/auth.html?mode=signup";
+    window.location.href = "../Auth/auth.html?mode=signup";
 
 });
 

@@ -1,0 +1,385 @@
+/* =====================================================
+   STYLE 9 — DETECTIVE NEWSPAPER
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: #1b1a17;
+
+    color: #24231f;
+}
+
+.member-page {
+    min-height: 100vh;
+
+    padding: 65px 6%;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #27251f 0px,
+            #27251f 3px,
+            #23221d 3px,
+            #23221d 6px
+        );
+}
+
+.member-container {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   NEWSPAPER HEADER
+===================================================== */
+
+.member-header {
+    padding: 35px;
+
+    background: #ded8c8;
+
+    border-top: 8px solid #25231e;
+
+    border-bottom: 4px double #25231e;
+
+    text-align: center;
+}
+
+.member-case-number {
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #8f302a;
+}
+
+.member-header h1 {
+    margin: 10px 0;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.member-header p {
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   NEWSPAPER
+===================================================== */
+
+.member-case-file {
+    margin-top: 25px;
+
+    padding-bottom: 40px;
+
+    background:
+        radial-gradient(
+            rgba(60,50,35,.06) 1px,
+            transparent 1px
+        ),
+        #e7e1d1;
+
+    background-size: 5px 5px;
+
+    box-shadow:
+        8px 10px 0 rgba(0,0,0,.4);
+}
+
+
+/* =====================================================
+   NEWS STRIP
+===================================================== */
+
+.member-file-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 20px;
+
+    border-bottom: 2px solid #292721;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.member-status {
+    color: #973029;
+}
+
+
+/* =====================================================
+   ARTICLE
+===================================================== */
+
+.member-profile {
+    display: grid;
+
+    grid-template-columns: 300px 1fr;
+
+    gap: 45px;
+
+    padding: 45px;
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.member-photo-frame {
+    position: relative;
+
+    padding: 8px;
+
+    border: 1px solid #49463d;
+
+    background: #eee9db;
+
+    cursor: pointer;
+}
+
+.member-photo-frame::after {
+    content: "FILE PHOTO";
+
+    position: absolute;
+
+    left: 10px;
+    bottom: 10px;
+
+    padding: 4px 7px;
+
+    background: #25231e;
+
+    color: white;
+
+    font-family: monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.member-photo-frame img {
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: opacity .25s ease;
+}
+
+.member-photo-label {
+    margin-top: 12px;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   HEADLINE
+===================================================== */
+
+.member-info h2 {
+    padding-bottom: 10px;
+
+    border-bottom: 4px solid #25231e;
+
+    font-size: clamp(30px, 4vw, 48px);
+
+    line-height: 1;
+}
+
+.member-role {
+    margin: 10px 0 25px;
+
+    font-family: monospace;
+
+    color: #95302a;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   ARTICLE TEXT
+===================================================== */
+
+.member-intro {
+    column-count: 2;
+
+    column-gap: 28px;
+
+    text-align: justify;
+}
+
+.member-intro::before {
+    content: "SPECIAL INVESTIGATION";
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #95302a;
+
+    column-span: all;
+}
+
+.member-intro p {
+    margin-bottom: 18px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.member-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1.4fr;
+
+    margin: 30px 45px 0;
+
+    border-top: 3px solid #28261f;
+
+    border-bottom: 3px solid #28261f;
+}
+
+.member-detail {
+    padding: 18px;
+
+    border-right: 1px solid #777266;
+}
+
+.member-detail:last-child {
+    border-right: none;
+}
+
+.member-detail h3 {
+    margin-bottom: 8px;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #95302a;
+}
+
+.member-detail p {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.member-footer {
+    margin-top: 20px;
+
+    padding: 25px;
+
+    background: #211f1b;
+
+    color: #aaa18d;
+
+    text-align: center;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+@media (max-width: 850px) {
+
+    .member-profile {
+        grid-template-columns: 1fr;
+    }
+
+    .member-photo-section {
+        max-width: 300px;
+
+        margin: auto;
+    }
+
+    .member-intro {
+        column-count: 1;
+    }
+
+    .member-details {
+        grid-template-columns: 1fr;
+
+        margin: 30px;
+    }
+
+    .member-detail {
+        border-right: none;
+
+        border-bottom: 1px solid #777266;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .member-page {
+        padding: 35px 3%;
+    }
+
+    .member-profile {
+        padding: 30px 20px;
+    }
+}
