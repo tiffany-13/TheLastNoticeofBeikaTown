@@ -1,5 +1,14 @@
-/* =====================================================
-   GLOBAL
+:root {
+    --ink: #090806;
+    --black: #11100d;
+    --panel: rgba(18, 16, 12, 0.92);
+    --paper: #eee8dc;
+    --muted: #c7bda9;
+    --beige: #b78d4c;
+    --light-beige: #dfc887;
+    --line: rgba(238, 232, 220, 0.25);
+    --background-image: url('../assets/Others/stage.jpg');
+}
 
 * {
     margin: 0;
@@ -7,560 +16,437 @@
     box-sizing: border-box;
 }
 
-
 html,
 body {
     width: 100%;
     min-height: 100%;
 }
 
-
 body {
-    background: #05070b;
-    color: #f2f4f7;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    min-height: 100vh;
+    color: var(--paper);
+    background:
+        linear-gradient(rgba(9, 8, 6, 0.42), rgba(9, 8, 6, 0.58)),
+        var(--background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
+/* =========================
+   PAGE BACKGROUND
+========================== */
 
-/* =====================================================
-   BACKGROUND
-
-.background {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient( circle at 50% 30%, #18273b 0%, #0b111b 38%, #05070b 75% );
-    z-index: -10;
-}
-
-
-.moon {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    right: 13%;
-    top: 13%;
-    background: radial-gradient( circle at 35% 30%, #ffffff, #d8dce1 55%, #9ea5ad 100% );
-    box-shadow: 0 0 30px rgba(220,230,245,0.25), 0 0 100px rgba(170,190,220,0.15);
-}
-
-
-.rain {
-    position: absolute;
-    inset: 0;
-    opacity: 0.13;
-    background-image: repeating-linear-gradient( 105deg, transparent 0px, transparent 5px, rgba(170,200,230,0.5) 6px, transparent 7px, transparent 28px );
-    animation: rainMove 0.8s linear infinite;
-}
-
-
-@keyframes rainMove {
-
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 30px 60px;
-    }
-}
-
-
-
-/* =====================================================
-   HEADER
-
-.header {
+.auth-page {
     position: relative;
-    width: 100%;
-    height: 82px;
-    padding: 0 5vw;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    background: rgba(4,7,12,0.78);
-    backdrop-filter: blur(12px);
-    z-index: 20;
+    justify-content: flex-start;
+    min-height: 100dvh;
+    padding: clamp(45px, 5vw, 75px) clamp(42px, 8vw, 130px);
+    overflow: visible;
+    background:
+        radial-gradient(circle at 76% 46%, rgba(202, 154, 77, 0.2), transparent 18%),
+        radial-gradient(circle at 25% 10%, rgba(128, 87, 39, 0.14), transparent 38%),
+        rgba(8, 8, 6, 0.34);
 }
 
-
-
-/* =====================================================
-   LOGO
-
-.logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    text-decoration: none;
+/*.auth-page::before {
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(223, 200, 135, 0.15);
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 122px,
+            rgba(223, 200, 135, 0.035) 123px,
+            transparent 124px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 84px,
+            rgba(223, 200, 135, 0.03) 85px,
+            transparent 86px
+        );
+    content: "";
+    pointer-events: none;
 }
 
+.auth-page::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 49%;
+    width: 1px;
+    background: linear-gradient(
+        transparent,
+        rgba(223, 200, 135, 0.18),
+        transparent
+    );
+    content: "";
+    pointer-events: none;
+}*/
 
-.logo-small {
-    font-family: monospace;
-    font-size: 8px;
-    letter-spacing: 4px;
-    color: #e21d2f;
-    margin-bottom: 5px;
-}
-
-
-.logo-main {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    color: white;
-    text-shadow: 2px 2px 0 #e21d2f;
-}
-
-
-
-/* =====================================================
-   BACK BUTTON
-
-.back-button {
-    color: #aeb7c4;
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    transition: 0.3s;
-}
-
-
-    .back-button:hover {
-        color: white;
-    }
-
-
-
-/* =====================================================
-   AUTH CONTAINER
-
-.auth-container {
-    min-height: calc(100vh - 82px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-}
-
-
-
-/* =====================================================
+/* =========================
    AUTH BOX
+========================== */
 
 .auth-box {
-    width: min(500px, 100%);
-    padding: 45px;
-    background: #0b1018;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 10;
+    width: min(465px, 42%);
+    margin-top: 0;
+    margin-left: clamp(50px, 8vw, 145px);
+    padding: 27px 42px 25px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(183, 141, 76, 0.16), transparent 32%),
+        linear-gradient(135deg, rgba(71, 54, 31, 0.98), rgba(18, 17, 13, 0.98));
+    border: 2px solid rgba(223, 200, 135, 0.82);
+    border-top: 4px solid var(--light-beige);
+    border-radius: 20px;
+    box-shadow:
+        0 0 0 5px rgba(57, 43, 24, 0.72),
+        0 0 0 7px rgba(223, 200, 135, 0.16),
+        0 32px 80px rgba(0, 0, 0, 0.82),
+        0 0 30px rgba(183, 141, 76, 0.2);
+    backdrop-filter: blur(18px);
 }
 
+.auth-box::before {
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    left: 11px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(238, 232, 220, 0.58),
+        transparent
+    );
+    content: "";
+}
 
+.auth-box::after {
+    position: absolute;
+    right: -50px;
+    bottom: -62px;
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgba(223, 200, 135, 0.16);
+    border-radius: 50%;
+    content: "";
+}
 
-/* =====================================================
-   LABEL
+.case-number,
+.auth-label,
+.auth-box h1,
+.auth-line,
+.auth-intro,
+#loginForm,
+#signupForm,
+.auth-switch {
+    position: relative;
+    z-index: 1;
+}
+
+.case-number {
+    margin-bottom: 14px;
+    color: #dac891;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+}
 
 .auth-label {
-    font-family: monospace;
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: #e21d2f;
+    color: #e6cf94;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
 }
 
-
-
-/* =====================================================
-   TITLE
+/* LOGIN / SIGN UP font size preserved */
 
 .auth-box h1 {
-    margin-top: 12px;
-    font-size: 35px;
-    letter-spacing: 2px;
+    margin-top: 7px;
+    color: var(--paper);
+    font-size: clamp(40px, 4vw, 54px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1;
 }
-
-
-
-/* =====================================================
-   LINE
 
 .auth-line {
-    width: 60px;
-    height: 2px;
-    margin: 20px 0;
-    background: #e21d2f;
+    width: 58px;
+    height: 4px;
+    margin: 14px 0 12px;
+    background: var(--light-beige);
+    box-shadow: 0 0 16px rgba(183, 141, 76, 0.5);
 }
 
+.auth-intro {
+    max-width: 380px;
+    margin-bottom: 18px;
+    color: #ddd0b9;
+    font-size: 16px;
+    line-height: 1.45;
+}
 
-
-/* =====================================================
+/* =========================
    FORMS
+========================== */
 
 #loginForm,
 #signupForm {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-top: 20px;
+    gap: 6px;
 }
-
 
 #signupForm {
     display: none;
 }
 
+label {
+    margin-top: 5px;
+    color: #f0e5cb;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
 
+#loginForm input,
+#signupForm input {
+    width: 100%;
+    min-height: 45px;
+    padding: 9px 14px;
+    color: var(--paper);
+    background: rgba(5, 6, 5, 0.7);
+    border: 1px solid rgba(223, 200, 135, 0.58);
+    border-radius: 8px;
+    outline: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
 
-    /* =====================================================
-   INPUTS
+#loginForm input::placeholder,
+#signupForm input::placeholder {
+    color: #a2947e;
+}
 
-    #loginForm input,
-    #signupForm input {
-        width: 100%;
-        padding: 13px 15px;
-        background: #050b13;
-        border: 1px solid #3b5068;
-        color: white;
-        font-family: monospace;
-        font-size: 13px;
-        letter-spacing: 1px;
-        outline: none;
-        transition: 0.2s;
-    }
-
-
-        #loginForm input::placeholder,
-        #signupForm input::placeholder {
-            color: #91a5bb;
-        }
-
-
-        #loginForm input:focus,
-        #signupForm input:focus {
-            border-color: #3289ff;
-            background: #07101c;
-            box-shadow: inset 3px 0 0 #3289ff;
-        }
-
-
-
-/* =====================================================
-   MESSAGE
+#loginForm input:focus,
+#signupForm input:focus {
+    background: rgba(183, 141, 76, 0.12);
+    border-color: var(--light-beige);
+    box-shadow:
+        inset 4px 0 0 var(--beige),
+        0 0 14px rgba(223, 200, 135, 0.12);
+}
 
 #loginMessage,
 #signupMessage {
     min-height: 18px;
-    margin: 2px 0;
-    color: #ff3038;
-    font-family: monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
+    margin: 2px 0 0;
+    color: #f1aaa0;
+    font-size: 14px;
     text-align: center;
 }
 
-
-
-/* =====================================================
-   AUTH BUTTON
+/* =========================
+   BUTTONS
+========================== */
 
 .auth-button {
-    margin-top: 10px;
-    padding: 13px 25px;
-    background: #e21d2f;
-    color: white;
-    border: none;
-    font-weight: bold;
-    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 9px;
+    padding: 13px 17px;
+    color: #2b1c0b;
+    background: linear-gradient(90deg, #9b6d2d, #d7ad56, #f0cf82);
+    border: 1px solid #f3d98f;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.2s ease;
 }
 
+.auth-button:hover {
+    box-shadow: 0 0 24px rgba(223, 200, 135, 0.35);
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
 
-    .auth-button:hover {
-        background: #ff263b;
-        box-shadow: 0 0 25px rgba(226,29,47,0.3);
-    }
-
-
-
-/* =====================================================
-   SWITCH
+.auth-button:active {
+    transform: translateY(0);
+}
 
 .auth-switch {
     display: block;
-    margin: 22px auto 0;
+    margin: 17px auto 0;
+    padding: 5px 0;
+    color: #e0d0ae;
     background: none;
-    border: none;
-    color: #91a5bb;
-    font-family: monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
+    border: 0;
+    border-bottom: 1px solid transparent;
     cursor: pointer;
-    transition: 0.2s;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    transition: 0.2s ease;
 }
 
+.auth-switch:hover {
+    color: var(--light-beige);
+    border-color: var(--beige);
+}
 
-    .auth-switch:hover {
-        color: #3289ff;
+/* =========================
+   3D MODEL AREA
+========================== */
+
+.scene {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/*.scene-grid {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    width: min(680px, 54vw);
+    height: min(680px, 54vw);
+    border: 1px solid rgba(223, 200, 135, 0.1);
+    transform: translateY(-50%) rotate(45deg);
+}*/
+
+.scene-grid::before,
+.scene-grid::after {
+    position: absolute;
+    background: rgba(223, 200, 135, 0.08);
+    content: "";
+}
+
+.scene-grid::before {
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+
+.scene-grid::after {
+    left: 50%;
+    width: 1px;
+    height: 100%;
+}
+
+.model-stage {
+    position: absolute;
+    top: 50%;
+    right: clamp(6%, 12vw, 15%);
+    width: min(520px, 46vw);
+    height: min(620px, 76vh);
+    overflow: visible;
+    transform: translateY(-50%);
+}
+
+.model-stage::before {
+    position: absolute;
+    bottom: -18%;
+    left: 50%;
+    width: 80%;
+    aspect-ratio: 1.65;
+    border: 2px solid rgba(223, 200, 135, 0.72);
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 225, 142, 0.65),
+        rgba(183, 141, 76, 0.24) 40%,
+        transparent 70%
+    );
+    box-shadow:
+        0 0 24px rgba(255, 214, 119, 0.38),
+        0 15px 30px rgba(0, 0, 0, 0.65);
+    content: "";
+    transform: translateX(-50%) rotateX(65deg);
+}
+
+.model-stage::after {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    z-index: -1;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(248, 207, 118, 0.3),
+        rgba(183, 141, 76, 0.1) 42%,
+        transparent 70%
+    );
+    content: "";
+    filter: blur(12px);
+    transform: translateX(-50%);
+}
+
+model-viewer {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: translateY(18px);
+    pointer-events: auto;
+    --poster-color: transparent;
+}
+
+/* =========================
+   MOBILE
+========================== */
+
+@media (max-width: 800px) {
+    .auth-page {
+        justify-content: center;
+        padding: 54px 18px 80px;
     }
 
-
-
-/* =====================================================
-   RESPONSIVE
-
-@media (max-width: 600px) {
-
-    .header {
-        padding: 0 20px;
-    }
-
-    .logo-main {
-        font-size: 20px;
+    .auth-page::after,
+    .scene-grid {
+        display: none;
     }
 
     .auth-box {
-        padding: 30px 25px;
+        width: min(465px, 100%);
+        margin-top: 0;
+        margin-left: 0;
     }
 
-    .back-button {
-        font-size: 8px;
+    .model-stage {
+        top: auto;
+        right: -55px;
+        bottom: -90px;
+        width: 320px;
+        height: 380px;
+        opacity: 0.3;
+        transform: none;
     }
 }
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ashley | Developer Profile</title> 
-
-    <link rel="stylesheet" href="style2.css">
-</head>
-
-<body class="member-page">
-
-    <div class="member-container">
-
-        <!-- Header -->
-        <header class="member-header">
-
-            <div class="member-case-number">
-                CASE FILE NO. 001
-            </div>
-
-            <h1>DEVELOPER FILE</h1>
-
-            <p>
-                CLASSIFIED PROFILE • DEVELOPMENT TEAM
-            </p>
-
-        </header>
-
-
-        <!-- Main Profile -->
-        <main class="member-case-file">
-
-            <!-- Top Information Bar -->
-            <div class="member-file-top">
-
-                <span>
-                    MOURI DETECTIVE AGENCY
-                </span>
-
-                <span class="member-status">
-                    ● DEVELOPER PROFILE
-                </span>
-
-            </div>
-
-
-            <!-- Member Profile -->
-            <section class="member-profile">
-
-
-                <!-- Member Photo -->
-                <div class="member-photo-section">
-
-                    <div class="member-photo-frame" id="memberPhotoFrame">
-
-                        <img
-                            src="../assets/DevProfile/ashley_conan.png"
-                            alt="Ashley Photo"
-                            id="memberPhoto"
-                        >
-
-                    </div>
-
-                    <div class="member-photo-label">
-                        Ms. Ashley 
-                    </div>
-
-                </div>
-
-
-                <!-- Member Information -->
-                <div class="member-info">
-
-                    <h2>
-                        ASHLEY KHOR XU JEAN
-                    </h2>
-
-                    <div class="member-role">
-                        Programmer 
-                    </div>
-
-
-                    <!-- Introduction --> 
-                    <div class="member-intro">
-
-                        <p>
-                            My name is Ashley, and I am from Penang, Malaysia. 
-                            I am currently majoring in Artificial Intelligence, and I have been constantly developing my knowledge and skills in programming, computer science, and different areas of technology. 
-                            Through my studies and personal experience, I have become interested in using programming to create interactive applications and experiences. 
-                            One of the areas that I particularly enjoy is game development, as it allows me to combine technical skills with creativity and problem-solving.
-                        </p>
-
-                        <p>
-                           For this project, my main role is the programmer. 
-                           Since we are developing a web-based game, I will mainly focus on the technical implementation of the game and making sure that its features and mechanics work as intended. 
-                           I will also work closely with the other team members to implement their ideas and make sure that the programming matches the overall design of the game. 
-                           As a programmer, I will also need to identify and fix bugs, improve the game's functionality, and make sure the game provides a smooth experience for the players.
-                        </p>
-
-                        <p>
-                            I already have experience with game development, so I am familiar with some of the processes involved in creating a game. 
-                            I also have experience with HTML, CSS, and JavaScript, which are especially relevant to this project because they are commonly used to develop web-based applications and games. 
-                            I have worked with these technologies before and understand the basics of how they can be used to create interactive web pages. 
-                            I hope to apply this existing knowledge to the project while continuing to improve my skills, especially in JavaScript and web game development.
-                        </p>
-
-                        <p>
-                            I am also looking forward to the challenges that may come with developing a web game. 
-                            Compared to other types of games, a web game needs to consider things such as browser compatibility, performance, user interaction, and how the game responds to different screen sizes or devices. 
-                            I think these challenges will give me a good opportunity to expand my technical knowledge and learn more about developing games that can be accessed directly through a web browser. 
-                            I also hope to learn from my teammates and contribute ideas that can improve the overall quality of the game.
-                        </p>
-
-                        <p>
-                            Overall, my goal for this project is to contribute as much as I can and help the team create a great web game. 
-                            I hope we can combine everyone's skills, ideas, and creativity to produce a game that is both enjoyable to play and technically well-developed. 
-                            I also want to use this project as an opportunity to strengthen my programming and game development abilities through practical experience. 
-                            I am looking forward to working with my teammates, overcoming the challenges we encounter, and seeing our ideas develop into a finished game that we can all be proud of.
-                        </p>
-
-                    </div>
-
-
-                    <!-- Member Details -->
-                    <div class="member-details">
-
-
-                        <div class="member-detail">
-
-                            <h3>
-                                ROLE
-                            </h3>
-
-                            <p>
-                                Programmer 
-                            </p>
-
-                        </div>
-
-
-                        <div class="member-detail">
-
-                            <h3>
-                                MAIN TASKS
-                            </h3>
-
-                            <p>
-                                Programming
-                            </p>
-
-                        </div>
-
-
-                        <div class="member-detail">
-
-                            <h3>
-                                CONTRIBUTION
-                            </h3>
-
-                            <p>
-                                Implementing game mechanics, developing game logic, handling user interactions, integrating assets, fixing bugs, testing the game, and optimizing performance.
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-
-        <!-- Footer -->
-        <footer class="member-footer">
-
-            &copy; 2026 Mouri Detective Agency. All rights reserved.
-
-        </footer>
-
-    </div>
-
-
-    <!-- Photo Hover JavaScript -->
-    <script>
-
-        const photoFrame = document.getElementById("memberPhotoFrame");
-        const photo = document.getElementById("memberPhoto");
-
-        const firstPhoto = "../assets/DevProfile/ashley_conan.png"; 
-        const secondPhoto = "../assets/DevProfile/ashley.jpg"; 
-
-
-        photoFrame.addEventListener("mouseenter", () => {
-
-            photo.style.opacity = "0";
-
-            setTimeout(() => {
-
-                photo.src = secondPhoto;
-
-                photo.style.opacity = "1";
-
-            }, 250);
-
-        });
-
-
-        photoFrame.addEventListener("mouseleave", () => {
-
-            photo.style.opacity = "0";
-
-            setTimeout(() => {
-
-                photo.src = firstPhoto;
-
-                photo.style.opacity = "1";
-
-            }, 250);
-
-        });
-
-    </script>
-
-</body>
-
-</html>
