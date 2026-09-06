@@ -1,232 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
+// =====================================================
+// GET HTML ELEMENTS
+// =====================================================
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+const loginForm =
+    document.getElementById("loginForm");
 
-    <title>Ashley | Developer Profile</title> 
+const signupForm =
+    document.getElementById("signupForm");
 
-    <link rel="stylesheet" href="style2.css">
-</head>
+const authSwitch =
+    document.getElementById("authSwitch");
 
-<body class="member-page">
+const authTitle =
+    document.getElementById("authTitle");
 
-    <div class="member-container">
+const loginMessage =
+    document.getElementById("loginMessage");
 
-        <!-- Header -->
-        <header class="member-header">
+const signupMessage =
+    document.getElementById("signupMessage");
 
-            <div class="member-case-number">
-                CASE FILE NO. 001
-            </div>
 
-            <h1>DEVELOPER FILE</h1>
 
-            <p>
-                CLASSIFIED PROFILE • DEVELOPMENT TEAM
-            </p>
+// =====================================================
+// CHECK URL MODE
+// =====================================================
 
-        </header>
+const params =
+    new URLSearchParams(window.location.search);
 
+const mode =
+    params.get("mode");
 
-        <!-- Main Profile -->
-        <main class="member-case-file">
 
-            <!-- Top Information Bar -->
-            <div class="member-file-top">
 
-                <span>
-                    MOURI DETECTIVE AGENCY
-                </span>
+// =====================================================
+// SHOW LOGIN OR SIGN UP
+// =====================================================
 
-                <span class="member-status">
-                    ● DEVELOPER PROFILE
-                </span>
+if (mode === "signup") {
 
-            </div>
+    // Show SIGN UP
 
+    authTitle.textContent =
+        "SIGN UP";
 
-            <!-- Member Profile -->
-            <section class="member-profile">
+    loginForm.style.display =
+        "none";
 
+    signupForm.style.display =
+        "flex";
 
-                <!-- Member Photo -->
-                <div class="member-photo-section">
+    authSwitch.textContent =
+        "ALREADY HAVE AN ACCOUNT? LOGIN";
 
-                    <div class="member-photo-frame" id="memberPhotoFrame">
+}
 
-                        <img
-                            src="../assets/DevProfile/ashley_conan.png"
-                            alt="Ashley Photo"
-                            id="memberPhoto"
-                        >
+else {
 
-                    </div>
+    // Show LOGIN
 
-                    <div class="member-photo-label">
-                        Ms. Ashley 
-                    </div>
+    authTitle.textContent =
+        "LOGIN";
 
-                </div>
+    loginForm.style.display =
+        "flex";
 
+    signupForm.style.display =
+        "none";
 
-                <!-- Member Information -->
-                <div class="member-info">
+    authSwitch.textContent =
+        "CREATE AN ACCOUNT";
 
-                    <h2>
-                        ASHLEY KHOR XU JEAN
-                    </h2>
+}
 
-                    <div class="member-role">
-                        Programmer 
-                    </div>
 
 
-                    <!-- Introduction --> 
-                    <div class="member-intro">
+// =====================================================
+// CHECK IF ALREADY LOGGED IN
+// =====================================================
 
-                        <p>
-                            My name is Ashley, and I am from Penang, Malaysia. 
-                            I am currently majoring in Artificial Intelligence, and I have been constantly developing my knowledge and skills in programming, computer science, and different areas of technology. 
-                            Through my studies and personal experience, I have become interested in using programming to create interactive applications and experiences. 
-                            One of the areas that I particularly enjoy is game development, as it allows me to combine technical skills with creativity and problem-solving.
-                        </p>
+if (localStorage.getItem("loggedInUser")) {
 
-                        <p>
-                           For this project, my main role is the programmer. 
-                           Since we are developing a web-based game, I will mainly focus on the technical implementation of the game and making sure that its features and mechanics work as intended. 
-                           I will also work closely with the other team members to implement their ideas and make sure that the programming matches the overall design of the game. 
-                           As a programmer, I will also need to identify and fix bugs, improve the game's functionality, and make sure the game provides a smooth experience for the players.
-                        </p>
+    window.location.href =
+        "../Homepage.html";
 
-                        <p>
-                            I already have experience with game development, so I am familiar with some of the processes involved in creating a game. 
-                            I also have experience with HTML, CSS, and JavaScript, which are especially relevant to this project because they are commonly used to develop web-based applications and games. 
-                            I have worked with these technologies before and understand the basics of how they can be used to create interactive web pages. 
-                            I hope to apply this existing knowledge to the project while continuing to improve my skills, especially in JavaScript and web game development.
-                        </p>
+}
 
-                        <p>
-                            I am also looking forward to the challenges that may come with developing a web game. 
-                            Compared to other types of games, a web game needs to consider things such as browser compatibility, performance, user interaction, and how the game responds to different screen sizes or devices. 
-                            I think these challenges will give me a good opportunity to expand my technical knowledge and learn more about developing games that can be accessed directly through a web browser. 
-                            I also hope to learn from my teammates and contribute ideas that can improve the overall quality of the game.
-                        </p>
 
-                        <p>
-                            Overall, my goal for this project is to contribute as much as I can and help the team create a great web game. 
-                            I hope we can combine everyone's skills, ideas, and creativity to produce a game that is both enjoyable to play and technically well-developed. 
-                            I also want to use this project as an opportunity to strengthen my programming and game development abilities through practical experience. 
-                            I am looking forward to working with my teammates, overcoming the challenges we encounter, and seeing our ideas develop into a finished game that we can all be proud of.
-                        </p>
 
-                    </div>
+// =====================================================
+// SWITCH LOGIN / SIGN UP
+// =====================================================
 
+authSwitch.addEventListener("click", function () {
 
-                    <!-- Member Details -->
-                    <div class="member-details">
+    // Currently showing LOGIN
 
+    if (loginForm.style.display !== "none") {
 
-                        <div class="member-detail">
+        authTitle.textContent =
+            "SIGN UP";
 
-                            <h3>
-                                ROLE
-                            </h3>
+        loginForm.style.display =
+            "none";
 
-                            <p>
-                                Programmer 
-                            </p>
+        signupForm.style.display =
+            "flex";
 
-                        </div>
+        authSwitch.textContent =
+            "ALREADY HAVE AN ACCOUNT? LOGIN";
 
+        // Clear old messages
 
-                        <div class="member-detail">
+        loginMessage.textContent =
+            "";
 
-                            <h3>
-                                MAIN TASKS
-                            </h3>
+        signupMessage.textContent =
+            "";
 
-                            <p>
-                                Programming
-                            </p>
+    }
 
-                        </div>
+    // Currently showing SIGN UP
 
+    else {
 
-                        <div class="member-detail">
+        authTitle.textContent =
+            "LOGIN";
 
-                            <h3>
-                                CONTRIBUTION
-                            </h3>
+        loginForm.style.display =
+            "flex";
 
-                            <p>
-                                Implementing game mechanics, developing game logic, handling user interactions, integrating assets, fixing bugs, testing the game, and optimizing performance.
-                            </p>
+        signupForm.style.display =
+            "none";
 
-                        </div>
+        authSwitch.textContent =
+            "CREATE AN ACCOUNT";
 
+        // Clear old messages
 
-                    </div>
+        loginMessage.textContent =
+            "";
 
-                </div>
+        signupMessage.textContent =
+            "";
 
-            </section>
+    }
 
-        </main>
+});
 
 
-        <!-- Footer -->
-        <footer class="member-footer">
 
-            &copy; 2026 Mouri Detective Agency. All rights reserved.
+// =====================================================
+// SIGN UP
+// =====================================================
 
-        </footer>
+signupForm.addEventListener("submit", function (event) {
 
-    </div>
+    event.preventDefault();
 
 
-    <!-- Photo Hover JavaScript -->
-    <script>
+    // Get input values
 
-        const photoFrame = document.getElementById("memberPhotoFrame");
-        const photo = document.getElementById("memberPhoto");
+    const username =
+        document.getElementById("signupUsername")
+            .value.trim();
 
-        const firstPhoto = "../assets/DevProfile/ashley_conan.png"; 
-        const secondPhoto = "../assets/DevProfile/ashley.jpg"; 
+    const password =
+        document.getElementById("signupPassword")
+            .value;
 
+    const confirmPassword =
+        document.getElementById("signupConfirmPassword")
+            .value;
 
-        photoFrame.addEventListener("mouseenter", () => {
 
-            photo.style.opacity = "0";
+    // Clear previous message
 
-            setTimeout(() => {
+    signupMessage.textContent =
+        "";
 
-                photo.src = secondPhoto;
 
-                photo.style.opacity = "1";
 
-            }, 250);
+    // =================================================
+    // GET EXISTING USERS
+    // =================================================
 
-        });
+    const users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
 
 
-        photoFrame.addEventListener("mouseleave", () => {
 
-            photo.style.opacity = "0";
+    // =================================================
+    // CHECK DUPLICATE USERNAME
+    // =================================================
 
-            setTimeout(() => {
+    const existingUser =
+        users.find(
+            user =>
+                user.username.toLowerCase() ===
+                username.toLowerCase()
+        );
 
-                photo.src = firstPhoto;
 
-                photo.style.opacity = "1";
+    if (existingUser) {
 
-            }, 250);
+        signupMessage.textContent =
+            "USERNAME ALREADY EXISTS.";
 
-        });
+        return;
 
-    </script>
+    }
 
-</body>
 
-</html>
+
+    // =================================================
+    // CHECK PASSWORD LENGTH
+    // =================================================
+
+    if (password.length < 6) {
+
+        signupMessage.textContent =
+            "PASSWORD MUST BE AT LEAST 6 CHARACTERS.";
+
+        return;
+
+    }
+
+
+
+    // =================================================
+    // CHECK PASSWORD MATCH
+    // =================================================
+
+    if (password !== confirmPassword) {
+
+        signupMessage.textContent =
+            "PASSWORDS DO NOT MATCH.";
+
+        return;
+
+    }
+
+
+
+    // =================================================
+    // CREATE NEW USER
+    // =================================================
+
+    const newUser = {
+
+        username: username,
+
+        password: password
+
+    };
+
+
+    users.push(newUser);
+
+
+
+    // =================================================
+    // SAVE USERS
+    // =================================================
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+
+    // =================================================
+    // AUTOMATICALLY LOG USER IN
+    // =================================================
+
+    localStorage.setItem(
+        "loggedInUser",
+        username
+    );
+
+
+
+    // =================================================
+    // SUCCESS MESSAGE
+    // =================================================
+
+    signupMessage.textContent =
+        "ACCOUNT CREATED. WELCOME, DETECTIVE.";
+
+
+    signupForm.reset();
+
+
+
+    // =================================================
+    // RETURN TO HOMEPAGE
+    // =================================================
+
+    setTimeout(function () {
+
+        window.location.href =
+            "../Homepage.html";
+
+    }, 1000);
+
+});
+
+
+
+// =====================================================
+// LOGIN
+// =====================================================
+
+loginForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+
+    // Get input values
+
+    const username =
+        document.getElementById("loginUsername")
+            .value.trim();
+
+    const password =
+        document.getElementById("loginPassword")
+            .value;
+
+
+    // Clear previous message
+
+    loginMessage.textContent =
+        "";
+
+
+
+    // =================================================
+    // GET EXISTING USERS
+    // =================================================
+
+    const users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+
+
+    // =================================================
+    // FIND MATCHING USER
+    // =================================================
+
+    const user =
+        users.find(
+            user =>
+                user.username.toLowerCase() ===
+                username.toLowerCase() &&
+                user.password === password
+        );
+
+
+
+    // =================================================
+    // INVALID LOGIN
+    // =================================================
+
+    if (!user) {
+
+        loginMessage.textContent =
+            "INVALID USERNAME OR PASSWORD.";
+
+        return;
+
+    }
+
+
+
+    // =================================================
+    // SAVE LOGGED-IN USER
+    // =================================================
+
+    localStorage.setItem(
+        "loggedInUser",
+        user.username
+    );
+
+
+
+    // =================================================
+    // SUCCESS MESSAGE
+    // =================================================
+
+    loginMessage.textContent =
+        "LOGIN SUCCESSFUL. WELCOME BACK, DETECTIVE.";
+
+
+    loginForm.reset();
+
+
+
+    // =================================================
+    // RETURN TO HOMEPAGE
+    // =================================================
+
+    setTimeout(function () {
+
+        window.location.href =
+            "../Homepage.html";
+
+    }, 1000);
+
+});

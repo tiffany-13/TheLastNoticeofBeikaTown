@@ -1,3 +1,337 @@
+/* =====================================================
+   GLOBAL
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    background: #05070b;
+    color: #f2f4f7;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   BACKGROUND
+
+.background {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient( circle at 50% 30%, #18273b 0%, #0b111b 38%, #05070b 75% );
+    z-index: -10;
+}
+
+
+.moon {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    right: 13%;
+    top: 13%;
+    background: radial-gradient( circle at 35% 30%, #ffffff, #d8dce1 55%, #9ea5ad 100% );
+    box-shadow: 0 0 30px rgba(220,230,245,0.25), 0 0 100px rgba(170,190,220,0.15);
+}
+
+
+.rain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.13;
+    background-image: repeating-linear-gradient( 105deg, transparent 0px, transparent 5px, rgba(170,200,230,0.5) 6px, transparent 7px, transparent 28px );
+    animation: rainMove 0.8s linear infinite;
+}
+
+
+@keyframes rainMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 30px 60px;
+    }
+}
+
+
+
+/* =====================================================
+   HEADER
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 82px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(4,7,12,0.78);
+    backdrop-filter: blur(12px);
+    z-index: 20;
+}
+
+
+
+/* =====================================================
+   LOGO
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+}
+
+
+.logo-small {
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: #e21d2f;
+    margin-bottom: 5px;
+}
+
+
+.logo-main {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 2px 2px 0 #e21d2f;
+}
+
+
+
+/* =====================================================
+   BACK BUTTON
+
+.back-button {
+    color: #aeb7c4;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+
+    .back-button:hover {
+        color: white;
+    }
+
+
+
+/* =====================================================
+   AUTH CONTAINER
+
+.auth-container {
+    min-height: calc(100vh - 82px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+
+/* =====================================================
+   AUTH BOX
+
+.auth-box {
+    width: min(500px, 100%);
+    padding: 45px;
+    background: #0b1018;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+}
+
+
+
+/* =====================================================
+   LABEL
+
+.auth-label {
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #e21d2f;
+}
+
+
+
+/* =====================================================
+   TITLE
+
+.auth-box h1 {
+    margin-top: 12px;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+
+
+/* =====================================================
+   LINE
+
+.auth-line {
+    width: 60px;
+    height: 2px;
+    margin: 20px 0;
+    background: #e21d2f;
+}
+
+
+
+/* =====================================================
+   FORMS
+
+#loginForm,
+#signupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+
+#signupForm {
+    display: none;
+}
+
+
+
+    /* =====================================================
+   INPUTS
+
+    #loginForm input,
+    #signupForm input {
+        width: 100%;
+        padding: 13px 15px;
+        background: #050b13;
+        border: 1px solid #3b5068;
+        color: white;
+        font-family: monospace;
+        font-size: 13px;
+        letter-spacing: 1px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+
+        #loginForm input::placeholder,
+        #signupForm input::placeholder {
+            color: #91a5bb;
+        }
+
+
+        #loginForm input:focus,
+        #signupForm input:focus {
+            border-color: #3289ff;
+            background: #07101c;
+            box-shadow: inset 3px 0 0 #3289ff;
+        }
+
+
+
+/* =====================================================
+   MESSAGE
+
+#loginMessage,
+#signupMessage {
+    min-height: 18px;
+    margin: 2px 0;
+    color: #ff3038;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+
+/* =====================================================
+   AUTH BUTTON
+
+.auth-button {
+    margin-top: 10px;
+    padding: 13px 25px;
+    background: #e21d2f;
+    color: white;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+    .auth-button:hover {
+        background: #ff263b;
+        box-shadow: 0 0 25px rgba(226,29,47,0.3);
+    }
+
+
+
+/* =====================================================
+   SWITCH
+
+.auth-switch {
+    display: block;
+    margin: 22px auto 0;
+    background: none;
+    border: none;
+    color: #91a5bb;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+    .auth-switch:hover {
+        color: #3289ff;
+    }
+
+
+
+/* =====================================================
+   RESPONSIVE
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .logo-main {
+        font-size: 20px;
+    }
+
+    .auth-box {
+        padding: 30px 25px;
+    }
+
+    .back-button {
+        font-size: 8px;
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 
