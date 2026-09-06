@@ -1,0 +1,269 @@
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 3% 0;
+    background: linear-gradient( to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 100% );
+    border-bottom: none;
+    z-index: 1000;
+}
+
+/* ===============================
+   CIRCULAR LOGO
+================================ */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-out;
+}
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .logo:hover {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+    .navbar nav a {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #c9c3b8;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+.navbar nav a:hover {
+    color: #d7ad55;
+}
+
+
+/* =====================================================
+   LOGOUT MODAL
+===================================================== */
+
+.logout-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+}
+
+
+    .logout-modal.show {
+        display: flex;
+    }
+
+
+.logout-box {
+    position: relative;
+    width: min(500px, 90%);
+    padding: 45px;
+    background: #0b1018;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+    text-align: center;
+}
+
+
+.logout-label {
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--red);
+}
+
+
+.logout-box h2 {
+    margin-top: 12px;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+
+.logout-line {
+    width: 60px;
+    height: 2px;
+    margin: 20px auto;
+    background: var(--red);
+}
+
+
+.logout-box p {
+    color: #9da8b6;
+    line-height: 1.7;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+.logout-box button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: var(--red);
+    color: white;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+    .logout-box button:hover {
+        background: #ff263b;
+        box-shadow: 0 0 25px rgba(226,29,47,0.3);
+    }
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.login-btn {
+    all: unset;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
+    height: 32px;
+    margin: 0 5px;
+    font-family: "Viaoda Libre", Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #d7ad55;
+    border-top: 1px solid #b8975b;
+    border-bottom: 1px solid #b8975b;
+    cursor: pointer;
+    transition: background 200ms ease-in-out, color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+
+    /* =====================================================
+   CORNER GEOMETRY
+===================================================== */
+
+    .login-btn .left,
+    .login-btn .right {
+        position: absolute;
+        top: 50%;
+        width: 22px;
+        height: 22px;
+        border-bottom: 1px solid #b8975b;
+        border-left: 1px solid #b8975b;
+        transition: background 200ms ease-in-out;
+    }
+
+
+    /* LEFT CORNER */
+
+    .login-btn .left {
+        left: -11px;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+
+    /* RIGHT CORNER */
+
+    .login-btn .right {
+        right: -11px;
+        transform: translateY(-50%) rotate(-135deg);
+    }
+
+
+        /* =====================================================
+   DECORATIVE DIAMOND
+===================================================== */
+
+        .login-btn .left::before,
+        .login-btn .right::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #b8975b;
+            top: 14px;
+            left: -5px;
+            transform: rotate(0deg);
+            background: #080b10;
+        }
+
+
+        .login-btn .left::after,
+        .login-btn .right::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #b8975b;
+            top: 16px;
+            left: -2px;
+        }
+
+
+    /* =====================================================
+   HOVER
+===================================================== */
+
+    .login-btn:hover {
+        background: rgba(215, 173, 85, 0.25);
+        color: #f1d38a;
+        transform: translateY(-3px);
+    }
+
+
+        .login-btn:hover .left,
+        .login-btn:hover .right {
+            background: rgba(215, 173, 85, 0.25);
+        }
+
+    .login-btn span {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        line-height: normal;
+    }

@@ -83,7 +83,7 @@ else {
 if (localStorage.getItem("loggedInUser")) {
 
     window.location.href =
-        "../Homepage.html";
+        "../index.html";
 
 }
 
@@ -304,7 +304,7 @@ signupForm.addEventListener("submit", function (event) {
     setTimeout(function () {
 
         window.location.href =
-            "../Homepage.html";
+            "../index.html";
 
     }, 1000);
 
@@ -399,18 +399,14 @@ loginForm.addEventListener("submit", function (event) {
 
 
     loginForm.reset();
+    
+setTimeout(function () {
 
+    window.location.href =
+        "../index.html";
 
+}, 1000);
 
-    // =================================================
-    // RETURN TO HOMEPAGE
-    // =================================================
-
-    setTimeout(function () {
-
-        window.location.href =
-            "../Homepage.html";
-
-    }, 1000);
+  
 
 });
