@@ -1,0 +1,947 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --red: #ff3038;
+    --blue: #3289ff;
+    --steel: #6e91b8;
+    --gold: #d7a52c;
+    --purple: #a047ff;
+    --cyan: #00d9e8;
+    --background: #02060c;
+    --card: #07111f;
+    --text: #f4f7fb;
+    --muted: #a4afbf;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+
+body {
+    min-height: 100vh;
+    position: relative;
+    background: #02060c;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+
+/* -----------------------------------------------------
+   CONAN IMAGE
+----------------------------------------------------- */
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    z-index: -2;
+    pointer-events: none;
+    background: none;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../images/conan-bg.jpg");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 60%,
+        rgba(0,0,0,0.95) 70%,
+        rgba(0,0,0,0.70) 80%,
+        rgba(0,0,0,0.35) 91%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 60%,
+        rgba(0,0,0,0.95) 70%,
+        rgba(0,0,0,0.70) 80%,
+        rgba(0,0,0,0.35) 91%,
+        transparent 100%
+    );
+}
+
+
+/* -----------------------------------------------------
+   MAIN CSS INVESTIGATION BACKGROUND
+----------------------------------------------------- */
+
+.css-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: -3;
+    overflow: hidden;
+    pointer-events: none;
+
+    /*
+       The background is intentionally different
+       from the cards.
+
+       Cards = dark blue/navy
+       Background = near-black + steel + red
+       investigation graphics
+    */
+
+    background:
+
+    /* ================================================
+       1. LARGE BLUEPRINT GRID
+       ================================================
+
+    linear-gradient(
+        rgba(74, 112, 150, 0.075) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(74, 112, 150, 0.075) 1px,
+        transparent 1px
+    ),*/
+
+    /* ================================================
+       2. SMALL TECHNICAL GRID
+       ================================================ */
+
+    linear-gradient(
+        rgba(110, 145, 184, 0.025) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(110, 145, 184, 0.025) 1px,
+        transparent 1px
+    ),
+
+    /* ================================================
+       3. RED INVESTIGATION ZONE
+       ================================================ */
+
+    linear-gradient(
+        135deg,
+        transparent 0%,
+        transparent 57%,
+        rgba(255, 48, 56, 0.045) 57%,
+        rgba(255, 48, 56, 0.045) 58%,
+        transparent 58%,
+        transparent 72%,
+        rgba(255, 48, 56, 0.035) 72%,
+        rgba(255, 48, 56, 0.035) 82%,
+        transparent 82%
+    ),
+
+    /* ================================================
+       4. BLUE TECHNICAL ZONE
+       ================================================ */
+
+    linear-gradient(
+        45deg,
+        transparent 0%,
+        transparent 68%,
+        rgba(50, 137, 255, 0.035) 68%,
+        rgba(50, 137, 255, 0.035) 69%,
+        transparent 69%
+    ),
+
+    /* ================================================
+       5. RADIAL INVESTIGATION AREAS
+       ================================================ */
+
+    radial-gradient(
+        circle at 8% 35%,
+        rgba(50, 137, 255, 0.075) 0%,
+        rgba(50, 137, 255, 0.025) 18%,
+        transparent 38%
+    ),
+
+    radial-gradient(
+        circle at 92% 55%,
+        rgba(255, 48, 56, 0.055) 0%,
+        rgba(255, 48, 56, 0.02) 20%,
+        transparent 40%
+    ),
+
+    /* ================================================
+       6. MAIN BACKGROUND
+       ================================================ */
+
+    linear-gradient(
+        to bottom,
+        #02050a 0%,
+        #03070d 25%,
+        #050910 50%,
+        #03070c 75%,
+        #010308 100%
+    );
+
+    background-size:
+        45px 45px,
+        45px 45px,
+        15px 15px,
+        15px 15px,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+}
+
+
+/* -----------------------------------------------------
+   BACKGROUND TECHNICAL MARKINGS
+----------------------------------------------------- */
+
+/*
+   Large diagonal technical lines.
+   These create visual movement in the empty
+   areas without using blur.
+*/
+
+.css-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        /* large diagonal lines */
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 240px,
+            rgba(110,145,184,0.025) 241px,
+            rgba(110,145,184,0.025) 243px,
+            transparent 244px,
+            transparent 480px
+        ),
+
+        /* horizontal technical divisions */
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 290px,
+            rgba(110,145,184,0.035) 291px,
+            rgba(110,145,184,0.035) 292px,
+            transparent 293px
+        );
+
+    pointer-events: none;
+}
+
+
+/*
+   Sharp circles / radar-style markings.
+*/
+
+.css-background::after {
+    content: "";
+    position: absolute;
+
+    top: 720px;
+    right: -100px;
+
+    width: 520px;
+    height: 520px;
+
+    border: 1px solid rgba(50,137,255,0.09);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 0 28%,
+            rgba(50,137,255,0.025) 28.2%,
+            transparent 28.5% 48%,
+            rgba(50,137,255,0.035) 48.2%,
+            transparent 48.5% 68%,
+            rgba(50,137,255,0.025) 68.2%,
+            transparent 68.5%
+        );
+
+    box-shadow:
+        0 0 0 35px rgba(50,137,255,0.018),
+        0 0 0 70px rgba(50,137,255,0.012);
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    width: min(1500px, 94%);
+    min-height: 100vh;
+    margin: auto;
+    padding: 55px 0 30px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.team {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+    z-index: 5;
+}
+
+
+.team h1 {
+    line-height: 1;
+    letter-spacing: -3px;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+}
+
+
+    .team h1 strong {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(65px, 9vw, 120px);
+        font-weight: 900;
+        letter-spacing: -4px;
+        color: #f4f5f7;
+        margin-bottom: 20px;
+        /*text-shadow: 5px 6px 0 var(--red), 0 0 40px rgba(255, 30, 40, 0.18);*/
+        text-shadow: 5px 6px 0 #b18a4d, 0 0 40px #7e6233;
+    }
+
+
+    .team h1 span {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(32px, 4.5vw, 58px);
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #f4f7fb;
+    }
+
+
+/* =====================================================
+   BOWTIE
+===================================================== */
+
+.bowtie {
+    width: 80px;
+    height: 20px;
+    margin: 25px auto 10px;
+    position: relative;
+}
+
+
+    .bowtie::before,
+    .bowtie::after {
+        content: "";
+        position: absolute;
+        width: 32px;
+        height: 23px;
+        top: 0;
+        background: var(--red);
+    }
+
+
+    .bowtie::before {
+        left: 5px;
+        clip-path: polygon( 0 0, 100% 15%, 100% 85%, 0 100% );
+    }
+
+
+    .bowtie::after {
+        right: 5px;
+        clip-path: polygon( 0 15%, 100% 0, 100% 100%, 0 85% );
+    }
+
+
+    .bowtie span {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        left: 32px;
+        top: 4px;
+        background: #d71920;
+        z-index: 2;
+    }
+
+
+/* =====================================================
+   SUBTITLE
+===================================================== */
+
+.japanese {
+    font-family: "Yu Mincho", serif;
+    font-size: 20px;
+    margin-top: 25px;
+    letter-spacing: 3px;
+    color: #f4f7fb;
+    text-shadow: 2px 2px 0 #020305;
+}
+
+
+.truth {
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #d5dfeb;
+    margin-top: 7px;
+    margin-bottom: 180px;
+    text-shadow: 2px 2px 0 #020305;
+}
+
+
+/* =====================================================
+   CARD SECTION
+===================================================== */
+
+.cards {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =====================================================
+   CARD ROW
+===================================================== */
+
+.card-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+}
+
+
+/* =====================================================
+   BASE CARD
+===================================================== */
+
+.case-card {
+    --accent: #fff;
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 380px;
+    overflow: hidden;
+    border: 1px solid color-mix( in srgb, var(--accent) 70%, transparent );
+    border-radius: 18px;
+    background: linear-gradient( 145deg, rgba(11, 24, 40, 0.96), rgba(3, 10, 18, 0.97) );
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    transition: flex 0.55s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s, border-color 0.45s;
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   CARD ROW HOVER
+===================================================== */
+
+.card-row:hover .case-card {
+    flex: 0.8 1 0;
+}
+
+
+.card-row .case-card:hover {
+    flex: 1.8 1 0;
+    transform: none;
+    border-color: var(--accent);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.65), 0 0 30px color-mix( in srgb, var(--accent) 25%, transparent );
+}
+
+
+/* =====================================================
+   INDIVIDUAL COLORS
+===================================================== */
+
+.red {
+    --accent: var(--red);
+}
+
+
+.blue {
+    --accent: var(--blue);
+}
+
+
+.steel {
+    --accent: var(--steel);
+}
+
+
+.gold {
+    --accent: var(--gold);
+}
+
+
+.purple {
+    --accent: var(--purple);
+}
+
+
+.cyan {
+    --accent: var(--cyan);
+}
+
+
+/* =====================================================
+   MOUSE LIGHT
+===================================================== */
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient( 180px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), color-mix( in srgb, var(--accent) 20%, transparent ), transparent 70% );
+    transition: opacity 0.25s;
+    z-index: 1;
+}
+
+
+.case-card:hover .card-glow {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.card-content {
+    position: absolute;
+    inset: 0;
+    padding: 25px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 5;
+    background: linear-gradient( to top, rgba(2,6,12,0.98) 5%, rgba(2,6,12,0.7) 35%, transparent 70% );
+    transition: opacity 0.35s;
+}
+
+
+.card-row .case-card:hover .card-content {
+    transform: none;
+}
+
+
+/* =====================================================
+   CARD TEXT
+===================================================== */
+
+.card-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: monospace;
+    font-size: 9px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 2px;
+}
+
+
+.card-label {
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+
+.card-content h2 {
+    font-size: clamp(20px, 1.8vw, 30px);
+    line-height: 0.95;
+    letter-spacing: -1px;
+    color: white;
+}
+
+
+.card-content p {
+    margin-top: 15px;
+    font-size: 10px;
+    line-height: 1.6;
+    color: #a9b3c1;
+}
+
+
+.card-arrow {
+    margin-top: 15px;
+    color: var(--accent);
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+
+.case-card:hover .card-arrow {
+    transform: translateX(8px);
+}
+
+
+/* =====================================================
+   HORIZONTAL CARD REVEAL
+===================================================== */
+
+.card-reveal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 52%;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    background: color-mix( in srgb, var(--accent) 8%, #050b13 );
+    border-left: 1px solid color-mix( in srgb, var(--accent) 35%, transparent );
+    transform: translateX(105%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1), opacity 0.3s;
+    z-index: 8;
+}
+
+
+.case-card:hover .card-reveal {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* =====================================================
+   REVEAL TEXT
+===================================================== */
+
+.card-reveal strong {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+
+.card-reveal span {
+    font-size: 9px;
+    color: #aab4c2;
+    line-height: 1.4;
+}
+
+
+.card-reveal button {
+    width: fit-content;
+    margin-top: 7px;
+    padding: 7px 10px;
+    background: transparent;
+    border: 1px solid color-mix( in srgb, var(--accent) 60%, transparent );
+    color: white;
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+
+    .card-reveal button:hover {
+        background: var(--accent);
+        color: #05070b;
+    }
+
+
+/* =====================================================
+   CARD ICON — MEMBER IMAGE
+===================================================== */
+
+.card-icon {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 380px;
+
+    overflow: hidden;
+
+    opacity: 0.85;
+
+    transition:
+        left 0.6s,
+        transform 0.6s,
+        opacity 0.4s;
+}
+
+
+/* Image fills the entire card-icon */
+
+.card-icon img {
+    width: 380px;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+    
+    transition: left 0.6s transform 0.6s scale 0.6s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* Move image to the left when card is hovered */
+
+.case-card:hover .card-icon {
+    left: 0;
+    transform: translateX(-5%) scale(1.1);
+    opacity: 1;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #56677d;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(1,4,9,0.82);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+
+    .modal.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+.modal-box {
+    position: relative;
+    width: min(500px, 90%);
+    padding: 40px;
+    background: linear-gradient( 145deg, #101c2c, #050a12 );
+    border: 1px solid rgba(60,140,255,0.4);
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s;
+}
+
+
+.modal.active .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #718097;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+    .modal-close:hover {
+        color: var(--red);
+    }
+
+
+.modal-label {
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--red);
+}
+
+
+.modal-box h2 {
+    font-size: 35px;
+    margin-top: 12px;
+}
+
+
+.modal-line {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+    margin: 20px 0;
+}
+
+
+.modal-box p {
+    color: #9caabd;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+.modal-button {
+    margin-top: 25px;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid var(--red);
+    color: white;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+    .modal-button:hover {
+        background: var(--red);
+    }
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .cards {
+        width: 95%;
+    }
+
+    .card-row {
+        gap: 10px;
+    }
+
+    .case-card {
+        height: 350px;
+    }
+
+    .team h1 span {
+        font-size: clamp(30px, 5vw, 50px);
+    }
+
+    .team h1 strong {
+        font-size: clamp(60px, 9vw, 95px);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    main {
+        width: 92%;
+    }
+
+    .card-row {
+        flex-direction: column;
+    }
+
+        .card-row:hover .case-card,
+        .card-row .case-card:hover {
+            flex: 1 1 auto;
+        }
+
+    .case-card {
+        height: 360px;
+        width: 100%;
+    }
+
+    .card-reveal {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .team h1 span {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .team h1 strong {
+        font-size: 58px;
+        letter-spacing: -2px;
+    }
+
+    .card-reveal {
+        width: 55%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
