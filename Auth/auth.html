@@ -1,168 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Detective Database</title>
-
-    <link rel="stylesheet"
-          href="auth.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Notice of Beika Town | Log In Sign Up</title>
+    <link rel="stylesheet" href="auth.css">
+    <script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js">
+    </script>
 </head>
 
-
 <body>
+    <main class="auth-page">
+    <div class="scene" aria-hidden="true">
+        <div class="scene-grid"></div>
 
-
-    <!-- =========================
-         BACKGROUND
-    ========================== -->
-
-    <div class="background">
-
-        <div class="moon"></div>
-
-        <div class="rain"></div>
-
+            <div class="model-stage">
+                <model-viewer
+                    src="../assets/Others/detective_conan.glb"
+                    alt="Detective Conan investigation model"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="48deg"
+                    camera-controls
+                    disable-zoom
+                    interaction-prompt="none"
+                    shadow-intensity="1"
+                    environment-image="neutral"
+                ></model-viewer>
+            </div>
     </div>
 
+        <section class="auth-box" aria-labelledby="authTitle">
+            <div class="case-number">CASE NO 001</div>
 
-
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header class="header">
-
-        <a href="../Homepage.html"
-           class="logo">
-
-            <span class="logo-small">
-                CASE FILE
-            </span>
-
-            <span class="logo-main">
-                CONAN
-            </span>
-
-        </a>
-
-
-        <a href="../Homepage.html"
-           class="back-button">
-            ← BACK TO HOME
-        </a>
-
-    </header>
-
-
-
-    <!-- =========================
-         AUTH CONTAINER
-    ========================== -->
-
-    <main class="auth-container">
-
-        <div class="auth-box">
-
-
-            <span class="auth-label">
-                DETECTIVE DATABASE
-            </span>
-
-
-            <h1 id="authTitle">
-                LOGIN
-            </h1>
-
-
+            <span class="auth-label">BEIKA TOWN INVESTIGATION SYSTEM</span>
+            <h1 id="authTitle">LOGIN</h1>
             <div class="auth-line"></div>
 
-
-
-            <!-- =========================
-                 LOGIN FORM
-            ========================== -->
+            <p class="auth-intro">
+                Sign in to inspect evidence, review case files, and uncover the truth.
+            </p>
 
             <form id="loginForm">
+                <label for="loginUsername">DETECTIVE NAME</label>
+                <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="ENTER USERNAME"
+                    autocomplete="username"
+                    required
+                >
 
-                <input type="text"
-                       id="loginUsername"
-                       placeholder="USERNAME"
-                       required>
+                <label for="loginPassword">ACCESS CODE</label>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="ENTER PASSWORD"
+                    autocomplete="current-password"
+                    required
+                >
 
-                <input type="password"
-                       id="loginPassword"
-                       placeholder="PASSWORD"
-                       required>
+                <p id="loginMessage" role="alert"></p>
 
-                <p id="loginMessage"></p>
-
-                <button type="submit"
-                        class="auth-button">
-                    LOGIN
+                <button type="submit" class="auth-button">
+                    <span>LOG IN</span>
+                    <span aria-hidden="true">→</span>
                 </button>
-
             </form>
-
-
-
-            <!-- =========================
-                 SIGN UP FORM
-            ========================== -->
 
             <form id="signupForm">
+                <label for="signupUsername">DETECTIVE NAME</label>
+                <input
+                    type="text"
+                    id="signupUsername"
+                    placeholder="CHOOSE USERNAME"
+                    autocomplete="username"
+                    required
+                >
 
-                <input type="text"
-                       id="signupUsername"
-                       placeholder="USERNAME"
-                       required>
+                <label for="signupPassword">CREATE ACCESS CODE</label>
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="CREATE PASSWORD"
+                    autocomplete="new-password"
+                    required
+                >
 
-                <input type="password"
-                       id="signupPassword"
-                       placeholder="PASSWORD"
-                       required>
+                <label for="signupConfirmPassword">CONFIRM ACCESS CODE</label>
+                <input
+                    type="password"
+                    id="signupConfirmPassword"
+                    placeholder="RE-ENTER PASSWORD"
+                    autocomplete="new-password"
+                    required
+                >
 
-                <input type="password"
-                       id="signupConfirmPassword"
-                       placeholder="CONFIRM PASSWORD"
-                       required>
+                <p id="signupMessage" role="alert"></p>
 
-                <p id="signupMessage"></p>
-
-                <button type="submit"
-                        class="auth-button">
-                    CREATE ACCOUNT
+                <button type="submit" class="auth-button">
+                    <span>REGISTER AS DETECTIVE</span>
+                    <span aria-hidden="true">→</span>
                 </button>
-
             </form>
 
-
-
-            <!-- =========================
-                 SWITCH
-            ========================== -->
-
-            <button type="button"
-                    class="auth-switch"
-                    id="authSwitch">
-                CREATE AN ACCOUNT
+            <button type="button" class="auth-switch" id="authSwitch">
+                FIRST CASE? REGISTER AS A DETECTIVE
             </button>
-
-
-        </div>
-
+        </section>
     </main>
 
-
-
     <script src="auth.js"></script>
-
 </body>
-
 </html>
