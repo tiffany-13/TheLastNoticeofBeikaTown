@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cedric | Developer Profile</title> 
+
+    <link rel="stylesheet" href="chibao.css">
+</head>
+
+<body class="member-page">
+    <div id="header"></div>
+
+    <div class="member-container">
+
+        <!-- Header -->
+        <header class="member-header">
+
+            <div class="member-case-number">
+                CASE FILE NO. 004
+            </div>
+
+            <h1>DEVELOPER FILE</h1>
+
+            <p>
+                CLASSIFIED PROFILE • DEVELOPMENT TEAM
+            </p>
+
+        </header>
+
+
+        <!-- Main Profile -->
+        <main class="member-case-file">
+
+            <!-- Top Information Bar -->
+            <div class="member-file-top">
+
+                <span>
+                    MOURI DETECTIVE AGENCY
+                </span>
+
+                <span class="member-status">
+                    ● DEVELOPER PROFILE
+                </span>
+
+            </div>
+
+
+            <!-- Member Profile -->
+            <section class="member-profile">
+
+
+                <!-- Member Photo -->
+                <div class="member-photo-section">
+
+                    <div class="member-photo-frame" id="memberPhotoFrame">
+
+                        <img
+                            src="../assets/DevProfile/cedric_conan.png"
+                            alt="Cedric Photo"
+                            id="memberPhoto"
+                        >
+
+                    </div>
+
+                    <div class="member-photo-label">
+                        Mr. Cedric <!--Replace with own nickname-->
+                    </div>
+
+                </div>
+
+
+                <!-- Member Information -->
+                <div class="member-info">
+
+                    <h2>
+                        CEDRIC PHAM CHI BAO 
+                    </h2>
+
+                    <div class="member-role">
+                        Member | Writer, Designer, Sub-programmer 
+                    </div>
+
+
+                    <!-- Introduction -->
+                    <div class="member-intro">
+
+                        <p>
+                            Xin chao, I'm Cedric, and I'm excited to join this project as writer and sub-progmmer. I come from Ho Chi Minh city which is known as financial center of Vietnam. 
+                            I have always been deeply inspired by how visuals, aesthetics, and narrative come together to touch people's heart and imagination.
+                        </p>
+
+                        <p>
+                           I'm currently a second-year student majoring in Artificial Intelligence at Beijing Institute
+                           of Technology, China. In my chinese-taught freshmen era, I have experienced with Clang and Python and archived HSK 6.
+                        My main focus on this project covers narrative writing, UI/UX design, audio composition, and overall project development. I believe that true immersion isn't created by one single element, but by the seamless harmony between what you see, read, and hear. A well-written line, a clean visual interface, and a subtle background track should guide players effortlessly into the world we've built.
+                        </p>
+                        
+                        <p>
+                           Parallel to my creative projects, my core academic passion lies in AI applied to Finance. I am deeply fascinated by research directions in quantitative finance, financial market prediction, and algorithmic decision-making using machine learning. Exploring how intelligent algorithms can decode complex economic systems keeps my analytical mind sharp and gives me a broader perspective on solving real-world problems.
+                        </p>
+
+                        <p>
+                            Outside of academics, I have a wide range of hobbies that keep me inspired.
+                            The field I love the most is photography, which allows me to continue my creative journey and improve my vision about the world. If you are also interested, we can share portfolio or behance. 
+                            Also, I am the guy with airpods on overly loud not knowing the whole school screaming my name, my no-skip album is "Norman Fucking Rockwell!" by Lana Del Rey. 
+                        </p>
+
+                        <p>
+                            I'm also a big fan of K-pop and Anime. Recently, I tended to re-watch Attack on Titan and looked forward to the comeback of Newjeans. I'm especially a longtime fan of 
+                            Detective Conan since young, so being part of a team working on something creative and engaging related 
+                            to this anime feels like a great opportunity. Whether you're a longtime Conan superfan or someone discovering 
+                            the series for the first time, my goal is simple: to make this game fun, immersive, and worth your time. 
+                            So from the bottom of my heart, thank you for playing and I truly hope you enjoy every moment of the adventure!
+                        </p>
+
+                      
+                    </div>
+
+
+                    <!-- Member Details -->
+                    <div class="member-details">
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                ROLE
+                            </h3>
+
+                            <p>
+                                Member - Writer, Designer, Sub-programmer.  
+                            </p>
+
+                        </div>
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                MAIN TASKS
+                            </h3>
+
+                            <p>
+                                Overall game plot development, narrative writing, and UI/UX design.
+                            </p>
+
+                            <p>
+                                Sub-programming.
+                            </p>
+
+                        </div>
+
+
+                        <div class="member-detail">
+
+                            <h3>
+                                CONTRIBUTION
+                            </h3>
+
+                            <p>
+                                Developed and implemented core functional game mechanics.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="member-footer">
+
+            &copy; 2026 Mouri Detective Agency. All rights reserved.
+
+        </footer>
+
+    </div>
+
+
+    <!-- Photo Hover JavaScript -->
+    <script>
+
+        const photoFrame = document.getElementById("memberPhotoFrame");
+        const photo = document.getElementById("memberPhoto");
+
+        const firstPhoto = "../assets/DevProfile/cedric_conan.png";
+        const secondPhoto = "../assets/DevProfile/cedric.png";
+
+
+        photoFrame.addEventListener("mouseenter", () => {
+
+            photo.style.opacity = "0";
+
+            setTimeout(() => {
+
+                photo.src = secondPhoto;
+
+                photo.style.opacity = "1";
+
+            }, 250);
+
+        });
+
+
+        photoFrame.addEventListener("mouseleave", () => {
+
+            photo.style.opacity = "0";
+
+            setTimeout(() => {
+
+                photo.src = firstPhoto;
+
+                photo.style.opacity = "1";
+
+            }, 250);
+
+        });
+
+    </script>
+    <script src="../Components/header.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+/* =====================================================
+   STYLE 10 — POLICE ARCHIVE BOX
+   WARM VINTAGE VERSION
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Courier New", monospace;
+    background: #171512;
+    color: #302820;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.member-page {
+    min-height: 100vh;
+    padding: 70px 6%;
+    background: radial-gradient( circle at 30% 20%, #4a4932, transparent 30% ), radial-gradient( circle at 80% 80%, #3b3024, transparent 35% ), #211e18;
+}
+
+.member-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =====================================================
+   ARCHIVE LABEL
+===================================================== */
+
+.member-header {
+    margin-top: 30px;
+    position: relative;
+    padding: 35px;
+    background: #d8c79f;
+    border: 1px solid #927d52;
+    box-shadow: 9px 10px 0 rgba(0,0,0,.45);
+    text-align: left;
+}
+
+    .member-header::after {
+        content: "ARCHIVED";
+        position: absolute;
+        right: 30px;
+        top: 25px;
+        padding: 8px 12px;
+        border: 2px solid #8c332b;
+        color: #8c332b;
+        font-size: 16px;
+        letter-spacing: 3px;
+        transform: rotate(-5deg);
+    }
+
+.member-case-number {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #665b42;
+}
+
+.member-header h1 {
+    margin-top: 10px;
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 5vw, 58px);
+    letter-spacing: 3px;
+    color: #2d281f;
+}
+
+.member-header p {
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #665b42;
+}
+
+
+/* =====================================================
+   ARCHIVE BOX
+===================================================== */
+
+.member-case-file {
+    position: relative;
+    margin-top: 25px;
+    padding-bottom: 45px;
+    background: #9b8864;
+    border: 10px solid #514b38;
+    box-shadow: inset 0 0 25px rgba(0,0,0,.3), 10px 12px 0 rgba(0,0,0,.5);
+}
+
+
+/* =====================================================
+   METAL LABEL
+===================================================== */
+
+.member-file-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px;
+    padding: 12px 18px;
+    background: #30352c;
+    color: #d7cda9;
+    border: 1px solid #62654e;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.member-status {
+    color: #b43b32;
+}
+
+
+/* =====================================================
+   PAPER
+===================================================== */
+
+.member-profile {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    margin: 35px;
+    padding: 45px;
+    background: #e8ddbd;
+    border: 1px solid #b09c6c;
+    box-shadow: 6px 7px 0 rgba(0,0,0,.28);
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.member-photo-section {
+    transform: rotate(-1deg);
+}
+
+.member-photo-frame {
+    position: relative;
+    padding: 8px;
+    background: #d9c99e;
+    border: 1px solid #756544;
+    cursor: pointer;
+    box-shadow: 3px 4px 0 rgba(0,0,0,.2);
+}
+
+    .member-photo-frame::before {
+        content: "IDENTIFICATION PHOTO";
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        padding: 5px 8px;
+        background: #2c3027;
+        color: #ded4b5;
+        font-size: 6px;
+        letter-spacing: 2px;
+        z-index: 3;
+    }
+
+    .member-photo-frame::after {
+        content: "002";
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        width: 36px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #715836;
+        color: #4b2b0f;
+        font-weight: bold;
+        font-size: 9px;
+        background: rgba(232,221,189,.8);
+    }
+
+    .member-photo-frame img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        display: block;
+        transition: opacity .25s ease;
+    }
+
+.member-photo-label {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #514835;
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.member-info h2 {
+    padding-bottom: 12px;
+    border-bottom: 2px solid #393326;
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 45px);
+    line-height: 1.05;
+    color: #30281e;
+}
+
+.member-role {
+    margin: 10px 0 27px;
+    color: #91352d;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   ARCHIVE NOTES
+===================================================== */
+
+.member-intro {
+    padding: 25px;
+    background: repeating-linear-gradient( transparent, transparent 28px, rgba(100,80,45,.12) 29px ), #e2d5ae;
+    border: 1px solid #b09b69;
+}
+
+    .member-intro::before {
+        content: "ARCHIVE RECORD";
+        display: block;
+        margin-bottom: 18px;
+        font-size: 8px;
+        letter-spacing: 3px;
+        color: #91352d;
+    }
+
+    .member-intro p {
+        margin-bottom: 19px;
+        font-family:'Courier New', Courier, monospace;
+        font-size: 14px;
+        line-height: 1.85;
+        color: #514634;
+    }
+
+
+/* =====================================================
+   RECORD FIELDS
+===================================================== */
+
+.member-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    margin-top: 35px;
+    border-top: 2px solid #49402e;
+    border-bottom: 2px solid #49402e;
+}
+
+.member-detail {
+    padding: 20px;
+    border-right: 1px solid #a28e60;
+}
+
+    .member-detail:last-child {
+        border-right: none;
+    }
+
+    .member-detail h3 {
+        margin-bottom: 8px;
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #91352d;
+    }
+
+    .member-detail p {
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        line-height: 1.7;
+        color: #40382b;
+    }
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.member-footer {
+    margin-top: 20px;
+    padding: 25px;
+    background: #292d25;
+    color: #b5a97d;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .member-profile {
+        grid-template-columns: 1fr;
+        margin: 20px;
+        padding: 35px;
+    }
+
+    .member-photo-section {
+        max-width: 320px;
+        margin: auto;
+    }
+
+    .member-details {
+        grid-template-columns: 1fr;
+    }
+
+    .member-detail {
+        border-right: none;
+        border-bottom: 1px solid #a28e60;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .member-page {
+        padding: 35px 3%;
+    }
+
+    .member-case-file {
+        border-width: 6px;
+    }
+
+    .member-profile {
+        margin: 12px;
+        padding: 25px 15px;
+    }
+}
