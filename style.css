@@ -1,0 +1,1058 @@
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #11100e;
+    color: #eee8dc;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   HERO VIDEO BANNER
+===================================================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden;
+
+    background: #11100E;
+}
+
+
+/* VIDEO */
+
+.hero-video {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+/* DARK OVERLAY */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 9, 7, 0.90) 0%,
+            rgba(10, 9, 7, 0.65) 20%,
+            rgba(10, 9, 7, 0.25) 80%
+        );
+
+    z-index: 1;
+}
+
+
+/* ADDITIONAL BOTTOM SHADOW */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 35%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(8, 7, 5, 0.85)
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   SOUND BUTTON
+===================================================== */
+
+.sound-button {
+    position: absolute;
+
+    right: 30px;
+    bottom: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid rgba(238, 232, 220, 0.6);
+    border-radius: 50%;
+
+    background: rgba(17, 16, 14, 0.85);
+
+    color: #EEE8DC;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+
+    pointer-events: auto;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sound-button:hover {
+    background: #B18A4D;
+
+    border-color: #B18A4D;
+
+    transform: scale(1.08);
+}
+
+.sound-button:active {
+    transform: scale(0.95);
+}
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+    position: absolute;
+
+    left: 8%;
+    top: 50%;
+
+    transform: translateY(-35%);
+
+    max-width: 500px;
+
+    z-index: 5;
+}
+
+.case-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    color: #c3a260;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 4.5vw, 80px);
+
+    line-height: 0.9;
+
+    letter-spacing: 4px;
+
+    color: #f0e9dd;
+
+    text-shadow: 4px 5px 0 rgba(0,0,0,0.4);
+}
+
+.hero h1 span {
+    color: #c69d54;
+}
+
+.hero-description {
+    max-width: 400px;
+
+    margin: 30px 0;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.8;
+
+    color: #bcb4a6;
+}
+
+.play-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 17px 32px;
+
+    background: #b98e48;
+
+    border: none;
+
+    color: #15120e;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.play-button:hover {
+    background: #e0bb73;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.play-icon {
+    font-size: 13px;
+}
+
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+    padding: 110px 8%;
+}
+
+.story {
+    background: #eee7da;
+
+    color: #26221c;
+}
+
+.characters {
+    background: #181613;
+}
+
+.mission {
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(15,13,10,0.9),
+            rgba(15,13,10,0.95)
+        ),
+        repeating-linear-gradient(
+            45deg,
+            #27221b,
+            #27221b 20px,
+            #211c16 20px,
+            #211c16 40px
+        );
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-bottom: 60px;
+}
+
+.section-heading > span {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    color: #ad8749;
+}
+
+.section-heading p {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    color: #8d826f;
+
+    margin-bottom: 7px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 45px);
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #c7bca8,
+            #c7bca8 2px,
+            #c3b7a1 3px,
+            #c3b7a1 4px
+        );
+
+    box-shadow: 10px 12px 0 #29231c;
+}
+
+
+.story-image {
+    position: relative;
+
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #c7bca8;
+
+    overflow: hidden;
+
+    box-shadow: 10px 12px 0 #29231c;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+
+    max-height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.03);
+}
+
+.story-text .eyebrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #a17b43;
+}
+
+.story-text h3 {
+    margin: 20px 0;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+}
+
+.story-text > p {
+    margin-bottom: 20px;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.8;
+
+    color: #625b50;
+}
+
+.highlight {
+    margin-top: 30px;
+
+    padding-left: 25px;
+
+    border-left: 3px solid #b58d4d;
+
+    font-style: italic;
+}
+
+.highlight span {
+    font-size: 40px;
+}
+
+
+/* =====================================================
+   CHARACTERS
+===================================================== */
+
+.character-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.character-card {
+    background: #24211d;
+
+    border: 1px solid #39342d;
+
+    transition: 0.3s;
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #a9854b;
+}
+
+.character-image {
+    width: 100%;
+    height: 320px;
+
+    overflow: hidden;
+
+    background: #211C16;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Hover effect */
+
+.character-card:hover .character-image img {
+    transform: scale(1.05);
+}
+
+.character-symbol {
+    margin-top: 20px;
+
+    font-size: 65px;
+
+    color: #b18b50;
+}
+
+.character-info {
+    padding: 25px;
+}
+
+.character-info .role {
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #b18a4e;
+}
+
+.character-info h3 {
+    margin: 10px 0;
+
+    font-size: 24px;
+}
+
+.character-info p {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #a8a097;
+}
+
+/* =====================================================
+   SUSPECTS
+===================================================== */
+
+.suspects {
+    background: #eee8dc;
+    color: #211c16;
+}
+
+.suspect-intro {
+    max-width: 600px;
+    margin: -25px auto 55px;
+    text-align: center;
+}
+
+.suspect-intro h3 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.suspect-intro p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #756c60;
+}
+
+.suspect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.suspect-card {
+    position: relative;
+    background: #f5efe3;
+    border: 1px solid #c8bba5;
+    box-shadow: 5px 7px 0 #c5b8a3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suspect-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 8px 14px 0 #b5a78f;
+}
+
+.suspect-photo {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    background: #211c16;
+}
+
+.suspect-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: grayscale(15%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.suspect-card:hover .suspect-photo img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.suspect-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 7px 12px;
+    background: #211c16;
+    color: #d7ad55;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.suspect-info {
+    padding: 22px 25px 25px;
+}
+
+.suspect-info h3 {
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.suspect-role {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a17b43;
+}
+
+/* =====================================================
+   MISSION
+===================================================== */
+
+.mission {
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.mission-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+}
+
+.centered {
+    justify-content: center;
+}
+
+.mission-intro {
+    margin-top: -25px;
+    margin-bottom: 60px;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    color: #b6ad9f;
+}
+
+.mission-steps {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 900px;
+
+    margin: 0 auto 60px;
+}
+
+.mission-step {
+    padding: 35px;
+
+    border-right: 1px solid #4b4338;
+}
+
+.mission-step:last-child {
+    border-right: none;
+}
+
+.step-number {
+    margin-bottom: 20px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #b38b4c;
+}
+
+.mission-step h3 {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+.mission-step p {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color: #9e978c;
+}
+
+.mission-play {
+    padding: 17px 30px;
+
+    background: transparent;
+
+    border: 1px solid #b18a4d;
+
+    color: #c8a461;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.mission-play span {
+    margin-left: 15px;
+
+    font-size: 18px;
+}
+
+.mission-play:hover {
+    background: #b18a4d;
+
+    color: #15120f;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 45px 8%;
+
+    text-align: center;
+
+    background: #0d0c0a;
+
+    border-top: 1px solid #29251f;
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+}
+
+.footer-logo strong {
+    color: #b78d4c;
+}
+
+footer p {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    color: #716b61;
+}
+
+.copyright {
+    margin-top: 15px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .wall {
+        right: 3%;
+        width: 430px;
+    }
+
+    .conan-container {
+        right: 15%;
+    }
+
+    .hero-content {
+        left: 5%;
+    }
+
+    .story-content {
+        gap: 40px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .navbar nav {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        padding: 25px;
+
+        background: #151310;
+
+        gap: 25px;
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: 950px;
+    }
+
+    .wall {
+        top: 120px;
+        right: 50%;
+
+        transform: translateX(50%);
+
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .conan-container {
+        display: none;
+    }
+
+    .hero-content {
+        top: auto;
+        bottom: 80px;
+        left: 8%;
+
+        transform: none;
+
+        max-width: 85%;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .note,
+    .magnifying-glass {
+        display: none;
+    }
+
+    .story-content {
+        grid-template-columns: 1fr;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-step {
+        border-right: none;
+
+        border-bottom: 1px solid #4b4338;
+    }
+
+    .mission-step:last-child {
+        border-bottom: none;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo strong {
+        font-size: 18px;
+    }
+
+    .hero {
+        min-height: 900px;
+    }
+
+    .developer-frames {
+        gap: 8px;
+    }
+
+    .photo-placeholder {
+        height: 90px;
+
+        border-width: 4px;
+    }
+
+    .photo-frame p {
+        font-size: 7px;
+    }
+
+    .wall {
+        padding: 15px;
+
+        border-width: 6px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+
+    .story-text h3 {
+        font-size: 32px;
+    }
+
+    .story-image {
+        min-height: 320px;
+    }
+
+    .document {
+        width: 75%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .suspects {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .suspect-intro {
+        margin: -10px auto 35px;
+        max-width: 500px;
+    }
+
+    .suspect-intro h3 {
+        font-size: 25px;
+    }
+
+    .suspect-intro p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .suspect-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .suspect-card {
+        width: 100%;
+    }
+
+    .suspect-photo {
+        height: 360px;
+    }
+
+    .suspect-info {
+        padding: 20px 22px 23px;
+    }
+
+    .suspect-info h3 {
+        font-size: 23px;
+    }
+
+    .suspect-role {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .suspects {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .suspect-intro {
+        margin-bottom: 30px;
+    }
+
+    .suspect-intro h3 {
+        font-size: 23px;
+    }
+
+    .suspect-intro p {
+        font-size: 11px;
+    }
+
+    .suspect-grid {
+        gap: 20px;
+    }
+
+    .suspect-photo {
+        height: 300px;
+    }
+
+    .suspect-number {
+        top: 12px;
+        left: 12px;
+        padding: 6px 10px;
+        font-size: 7px;
+    }
+
+    .suspect-info {
+        padding: 18px 20px 20px;
+    }
+
+    .suspect-info h3 {
+        font-size: 21px;
+    }
+
+    .suspect-role {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
